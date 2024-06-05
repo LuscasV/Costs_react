@@ -1,0 +1,46 @@
+{
+  "projects": [
+    {
+      "id": "39b1",
+      "name": "Teste",
+      "budget": "5000",
+      "category": {
+        "id": "2",
+        "name": "Desenvolvimento"
+      },
+      "cost": 600,
+      "services": [
+        {
+          "name": "Contratar dev",
+          "cost": "500",
+          "description": "vai criar a função de envio de e-mails",
+          "id": "487af175-fff3-4140-91f2-47e5be7de9ae"
+        },
+        {
+          "name": "Novo serviço",
+          "cost": "100",
+          "description": "teste",
+          "id": "afb11bc7-f001-43a5-9bef-5a7237dc965a"
+        }
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "Infra"
+    },
+    {
+      "id": "2",
+      "name": "Desenvolvimento"
+    },
+    {
+      "id": "3",
+      "name": "Design"
+    },
+    {
+      "id": "4",
+      "name": "Planejamento"
+    }
+  ]
+}
