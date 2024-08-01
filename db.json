@@ -23,6 +23,30 @@
           "id": "afb11bc7-f001-43a5-9bef-5a7237dc965a"
         }
       ]
+    },
+    {
+      "id": "6885",
+      "name": "lucas",
+      "budget": "5000",
+      "category": {
+        "id": "4",
+        "name": "Planejamento"
+      },
+      "cost": 4844,
+      "services": [
+        {
+          "name": "canal",
+          "cost": "400",
+          "description": "dsadad",
+          "id": "f36a9862-dc67-4129-91d9-336270b275d6"
+        },
+        {
+          "name": "Lucsdad",
+          "cost": "4444",
+          "description": "dsdadsa",
+          "id": "580b2616-6813-4d74-bc8a-dedaf8701c2c"
+        }
+      ]
     }
   ],
   "categories": [
