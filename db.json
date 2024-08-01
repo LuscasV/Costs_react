@@ -32,14 +32,8 @@
         "id": "4",
         "name": "Planejamento"
       },
-      "cost": 4844,
+      "cost": 4444,
       "services": [
-        {
-          "name": "canal",
-          "cost": "400",
-          "description": "dsadad",
-          "id": "f36a9862-dc67-4129-91d9-336270b275d6"
-        },
         {
           "name": "Lucsdad",
           "cost": "4444",
@@ -47,6 +41,17 @@
           "id": "580b2616-6813-4d74-bc8a-dedaf8701c2c"
         }
       ]
+    },
+    {
+      "id": "b1cf",
+      "category": {
+        "id": "1",
+        "name": "Infra"
+      },
+      "name": "teste",
+      "budget": "5000",
+      "cost": 0,
+      "services": []
     }
   ],
   "categories": [
