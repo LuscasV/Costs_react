@@ -1,54 +1,52 @@
-import React from 'react';
-import {useState, useEffect} from 'react'
-import { Link, useLocation } from 'react-router-dom';
-import Message from '../layout/Message';
-import Container from '../layout/Container'
-import LinkButton from '../layout/LinkButton'
-import ProjectCard from '../project/Card';
-import Loading from '../layout/Loading';
+import React from "react";
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import Message from "../layout/Message";
+import Container from "../layout/Container";
+import LinkButton from "../layout/LinkButton";
+import ProjectCard from "../project/Card";
+import Loading from "../layout/Loading";
 
-import styles from './Projects.module.css'
+import styles from "./Projects.module.css";
 
 function Projects() {
-
-  const [projects, setProjects] = useState([])
-  const [removeLoading, setRemoveLoading] = useState(false)
-  const[projectMessage, setProjectMessage] = useState('')
+  const [projects, setProjects] = useState([]);
+  const [removeLoading, setRemoveLoading] = useState(false);
+  const [projectMessage, setProjectMessage] = useState("");
 
   const location = useLocation();
-  const message = location.state ? location.state.message : '';
+  const message = location.state ? location.state.message : "";
 
   useEffect(() => {
-    setTimeout(
-      () => {
-        fetch('http://localhost:5000/projects', {
-      method: "GET",
-      headers: {
-        'Content-Type': 'application/json'
-      },
-    })
-    .then(resp => resp.json())
-    .then(data => {
-      setProjects(data)
-      setRemoveLoading(true)
-    })
-    .catch((err) => console.log(err))
-      }, 300)
-  }, [])
+    setTimeout(() => {
+      fetch("https://json-test-iota-plum.vercel.app/projects", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((resp) => resp.json())
+        .then((data) => {
+          setProjects(data);
+          setRemoveLoading(true);
+        })
+        .catch((err) => console.log(err));
+    }, 300);
+  }, []);
 
   function removeProject(id) {
-    fetch(`http://localhost:5000/projects/${id}`, {
+    fetch(`https://json-test-iota-plum.vercel.app/projects/${id}`, {
       method: "DELETE",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
     })
-    .then((resp) => resp.json())
-    .then(() => {
-      setProjects(projects.filter((project) => project.id !== id))
-      setProjectMessage('Projeto removido com suceso!')
-    })
-    .catch((err) => console.log(err))
+      .then((resp) => resp.json())
+      .then(() => {
+        setProjects(projects.filter((project) => project.id !== id));
+        setProjectMessage("Projeto removido com suceso!");
+      })
+      .catch((err) => console.log(err));
   }
 
   return (
@@ -56,29 +54,28 @@ function Projects() {
       <div className={styles.title_container}>
         <h1>Meus projetos</h1>
         <LinkButton to="/newproject" text="Criar Projeto" />
-        </div>
+      </div>
       {message && <Message type="success" msg={message} />}
       {projectMessage && <Message type="error" msg={projectMessage} />}
       <Container customClass="start">
-            {projects.length > 0 &&
-            projects.map((project) => (
-              <ProjectCard 
+        {projects.length > 0 &&
+          projects.map((project) => (
+            <ProjectCard
               id={project.id}
-              name={project.name} 
+              name={project.name}
               budget={project.budget}
               category={project.category?.name}
               key={project.id}
               handleRemove={removeProject}
-              />
-            ))}
-            {!removeLoading && <Loading />}
-            {removeLoading && projects.length === 0 && (
-              <p>Não há projetos cadastrados!</p>
-            )
-            }
+            />
+          ))}
+        {!removeLoading && <Loading />}
+        {removeLoading && projects.length === 0 && (
+          <p>Não há projetos cadastrados!</p>
+        )}
       </Container>
     </div>
-  )
+  );
 } //LEMBRAR DE DAR NPM RUN BACKEND
 
 export default Projects;
