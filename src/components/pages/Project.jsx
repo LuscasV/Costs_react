@@ -23,7 +23,7 @@ function Project() {
 
   useEffect(() => {
     setTimeout(() => {
-      fetch(`https://json-test-iota-plum.vercel.app/projects/${id}`, {
+      fetch(`http://localhost:5000/projects/${id}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -47,7 +47,7 @@ function Project() {
       return false;
     }
 
-    fetch(`https://json-test-iota-plum.vercel.app/projects/${project.id}`, {
+    fetch(`http://localhost:5000/projects/${project.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -85,7 +85,7 @@ function Project() {
     project.cost = newCost;
 
     // update project
-    fetch(`https://json-test-iota-plum.vercel.app/projects/${project.id}`, {
+    fetch(`http://localhost:5000/projects/${project.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -109,16 +109,13 @@ function Project() {
     projectUpdated.services = servicesUpdated;
     projectUpdated.cost = parseFloat(projectUpdated.cost) - parseFloat(cost);
 
-    fetch(
-      `https://json-test-iota-plum.vercel.app/projects/${projectUpdated.id}`,
-      {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/validation/json",
-        },
-        body: JSON.stringify(projectUpdated),
-      }
-    )
+    fetch(`http://localhost:5000/projects/${projectUpdated.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/validation/json",
+      },
+      body: JSON.stringify(projectUpdated),
+    })
       .then((resp) => resp.json())
       .then((data) => {
         setProject(projectUpdated);

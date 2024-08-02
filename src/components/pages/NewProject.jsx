@@ -10,7 +10,7 @@ function NewProject() {
     project.cost = 0;
     project.services = [];
 
-    fetch("https://json-test-iota-plum.vercel.app/projects", {
+    fetch("http://localhost:5000/projects", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
