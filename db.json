@@ -30,8 +30,19 @@
         "id": "1",
         "name": "Infra"
       },
-      "name": "dwadawwd",
+      "name": "teste22",
       "budget": "23333",
+      "cost": 0,
+      "services": []
+    },
+    {
+      "id": "7d9f",
+      "category": {
+        "id": "1",
+        "name": "Infra"
+      },
+      "name": "Lucas",
+      "budget": "3333",
       "cost": 0,
       "services": []
     }
